@@ -1,0 +1,708 @@
+{
+	//////////////////////////////////////////////////////////////////
+	// 				      LaTeX自定义代码片段                                 //
+	//  ___       ________  _________  _______      ___    ___      //
+       //  |\  \     |\   __  \|\___   ___\\  ___ \    |\  \  /  /|    //
+	//  \ \  \    \ \  \|\  \|___ \  \_\ \   __/|   \ \  \/  / /    //
+	//   \ \  \    \ \   __  \   \ \  \ \ \  \_|/__  \ \    / /     //
+	//    \ \  \____\ \  \ \  \   \ \  \ \ \  \_|\ \  /     \/      //       
+	//     \ \_______\ \__\ \__\   \ \__\ \ \_______\/  /\   \      //
+	//  	\|_______|\|__|\|__|    \|__|  \|_______/__/ /\ __\       //
+	//  											|__|/ \|__|     //
+	//////////////////////////////////////////////////////////////////
+	"Uppercase first tab stop": {
+		"prefix": "up",
+		"body": ["${1/.*/${0:/upcase}/}", "$0"]
+	},
+	"Test": {
+		"prefix": "bf",
+		"body": ["\\textbf{$TM_SELECTED_TEXT}"]
+	},
+	
+	// 公式测试片段
+	"Test Math formula": {
+		"prefix": "TestMathFormula",
+		"body": [
+			"\\sum_{i=1}^{+\\infty}{\\frac{1}{i^2}} = \\frac{\\pi^2}{6}",
+		],
+		"description": ""
+		},
+	// 绘图程序 ---> 二维和三维
+	// \pgfplotsset{
+	//		colormap={cool}{rgb255(0cm)=(255,255,255); rgb255(1cm)=(0,128,255); rgb255(2cm)=(255,0,255)}
+	//}
+	// colormap:
+	// cool,greenyellow,violet,blackwhite,jet,hot,hot2,viridis
+	"polarplot": {
+		"prefix": "polarplot",
+		"body": [
+			"\\polarplot[${1:scale}][${2:plot parameters}]{${3:f(\\t)}}"
+		],
+		"description": ""
+		},
+	"plot2d": {
+		"prefix": "plot2d",
+		"body": [
+		  "\\Gplot[${1:scale}]{${2:color}}{${3:f(x)}}"
+		],
+		"description": ""
+	  },
+	"plot3d": {
+		"prefix": "plot3d",
+		"body": [
+		  "\\Gplotz[${1:scale}]{${2:colormap style}}{${3:f(x, y)}}"
+		],
+		"description": ""
+	  },
+	"paraplot": {
+		"prefix": "paraplot2d",
+		"body": [
+		  "\\paraplot[${1:scale}][${2:plot parameters}]{{${3:x(t)}}, {${4:y(t)}}}"
+		],
+		"description": ""
+	  },
+	"paraplotz": {
+		"prefix": "paraplot3d",
+		"body": [
+		  "\\paraplotz[${1:scale}][${2:plot parameters}]{{${3:x(t)}}, {${4:y(t)}}}"
+		],
+		"description": ""
+	  },
+
+	// 链接设置
+	"hypersetup": {
+		"prefix": "hyperref",
+		"body": [
+		  "\\usepackage{hyperref}",
+		  "\\hypersetup{",
+		  "    colorlinks=true,",
+		  "    urlcolor=red,",
+		  "    linkcolor=blue,",
+		  "}"
+		],
+		"description": ""
+		},
+	"center environment": {
+		"prefix": "center",
+		"body": [
+		  "\\begin{center}",
+		  "    $1",
+		  "\\end{center}"
+		],
+		"description": ""
+		},
+
+	"multicols": {
+		"prefix": "cols",
+		"body": [
+		  "\\begin{multicols}{${1:2}}",
+		  "    $2",
+		  "\\end{multicols}"
+		],
+		"description": ""
+		},
+
+	// 0 .usetikzlibrary
+	"usetikzlibrary": {
+		"prefix": "use",
+		"body": [
+			"\\usetikzlibrary{$1}"
+		],
+		"description": ""
+		},
+
+	// 1.fracpartial
+	"fracpartial": {
+		"prefix": "fp",
+		"body": [
+		  "\\frac{\\partial $1}{\\partial $2}"
+		],
+		"description": ""
+	  },
+
+	//
+	"separate rule": {
+		"prefix": "rule",
+		"body": [
+			"\\noindent\\rule{${1:.9}\\linewidth}{2pt}",
+		],
+		"description": ""
+	},
+
+	// 2.align-no-numbered
+	"align numbered": {
+	"prefix": "alg",
+	"body": [
+		"\\begin{align}",
+		"    $1",
+		"\\end{align}",
+	],
+	"description": ""
+	},
+
+	// 3.align-no-numbered
+	"aligned-no-numbered": {
+		"prefix": "algd",
+		"body": [
+			"\\begin{aligned}",
+			"    $1",
+			"\\end{aligned}",
+		],
+		"description": ""
+	},
+
+	// 4. brace auto complement
+	"align-no-numbered": {
+		"prefix": "br",
+		"body": [
+			"\\left\\{",
+			"    $1",
+			"\\right.",
+		],
+		"description": ""
+	},
+
+	// 3.arrow-shortcut
+	"arrow-renewcommand": {
+		"prefix": "arrow",
+		"body": [
+		  "% 1. 短箭头",
+		  "\\newcommand{\\la}{\\leftarrow}",
+		  "\\newcommand{\\La}{\\Leftarrow}",
+		  "\\newcommand{\\ra}{\\rightarrow}",
+		  "\\newcommand{\\Ra}{\\Rightarrow}",
+		  "",
+		  "% 2. 长箭头",
+		  "\\newcommand{\\lla}{\\longleftarrow}",
+		  "\\newcommand{\\Lla}{\\Longleftarrow}",
+		  "\\newcommand{\\lra}{\\Longrightarrow}",
+		  "\\newcommand{\\Lra}{\\Longrightarrow}"
+		],
+		"description": ""
+	  },
+	  
+
+	// 4. 2 content settings
+	"content settings": {
+		"prefix": "content",
+		"body": [
+		  "    \\maketitle",
+		  "    \\begin{center}",
+		  "        \\tableofcontents",
+		  "        \\thispagestyle{empty}",
+		  "        ",
+		  "        \\thispagestyle{empty}",
+		  "    \\end{center}",
+		  "",
+		  "    \\newpage",
+		  "    \\thispagestyle{empty}"
+		],
+		"description": ""
+	  },
+
+	// 5. begin environment
+	"begin environment": {
+		"prefix": "beg",
+		"body": [
+		  "\\begin{$1}",
+		  " $2",
+		  "\\end{$1}"
+		],
+		"description": ""
+	  },
+
+	// 6. colorbox
+	"colorbox": {
+		"prefix": "colorbox",
+		"body": [
+		  "\\begin{tcolorbox}[colback=${1:blue}!5!${2:white},colframe=${3:blue}!75!${4:black},title=$5]",
+		  " $6 ",
+		  "\\end{tcolorbox}"
+		],
+		"description": ""
+	  },
+
+	// 7. diag matrix
+	"diag matrix": {
+		"prefix": "diag",
+		"body": [
+		  "\\begin{equation}",
+		  " \\begin{bmatrix}",
+		  "      $1 & 0  & \\cdots & 0\\\\\\\\",
+		  "      0  & $1 & \\cdots & 0\\\\\\\\",
+		  "      \\cdots\\\\\\\\",
+		  "      0  &    & \\cdots & $1\\\\\\\\",
+		  " \\end{bmatrix} ",
+		  "\\end{equation}"
+		],
+		"description": ""
+	  },
+
+	// 8. include figure
+	"include figure": {
+		"prefix": "fig",
+		"body": [
+		  "\\begin{figure}[!htb]",
+		  "    \\centering",
+		  "    \\includegraphics[scale=$1]{$2}",
+		  "    \\caption{$3}",
+		  "    \\label{$3}",
+		  "\\end{figure}"
+		],
+		"description": ""
+	  },
+	// 备注：label必须放在caption的后面，不然就会导致label无法被引用
+	// multi figure
+	// \uespackage{multicol}
+	// \usepackage{subcaption}
+	"multi figure": {
+		"prefix": "multifig",
+		"body": [
+		  "\\begin{figure}",
+		  "    \\centering",
+		  "    \\begin{multicols}{2}",
+		  "        \\begin{subfigure}{\\linewidth}",
+		  "        \\centering",
+		  "        \\includegraphics[width=.9\\linewidth]{$1}",
+		  "        \\caption{$2}",
+		  "        \\label{$2}",
+		  "        \\end{subfigure}",
+		  "        ",
+		  "        \\begin{subfigure}{\\linewidth}",
+		  "        \\centering",
+		  "        \\includegraphics[width=.9\\linewidth]{$3}",
+		  "        \\caption{$4}",
+		  "        \\label{$4}",
+		  "        \\end{subfigure}",
+		  "    \\end{multicols}",
+		  "    \\caption{}",
+		  "    \\label{}",
+		  "\\end{figure}"
+		],
+		"description": ""
+	},
+
+
+	// 9. horizontal matrix
+	"horizontal matrix": {
+		"prefix": "hmx",
+		"body": [
+		  "\\begin{bmatrix}",
+		  "    $1 & $1  & \\cdots & $1\\\\\\\\",
+		  "    $2 & $2  & \\cdots & $2\\\\\\\\",
+		  "    \\cdots\\\\\\\\",
+		  "    $3 & $3  & \\cdots & $3\\\\\\\\",
+		  "\\end{bmatrix} "
+		],
+		"description": ""
+	  },
+	// 10. basic information
+	"basic information": {
+		"prefix": "info",
+		"body": [
+		  "\\title{$1}",
+		  "\\author{${2:Eureka}}",
+		  "\\date{\\today}"
+		],
+		"description": ""
+	  },
+	
+	// 11. integrate
+	"integreta": {
+		"prefix": "int",
+		"body": [
+		  "\\int_{$1}^{$2}{$3 \\mathrm{d}$4}"
+		],
+		"description": ""
+	  },
+
+	// 12.1 itemlize
+	"itemlize": {
+		"prefix": "item",
+		"body": [
+		  "\\begin{itemize}",
+		  "    \\item $1",
+		  "\\end{itemize}"
+		],
+		"description": ""
+	},
+
+	// 12.2 Enumerate Environment
+	"Enumerate Environment": {
+		"prefix": "enumerate",
+		"body": [
+			"\\begin{enumerate}[(${1:1})]",
+			"    \\item $2",
+			"\\end{enumerate}"
+		],
+		"description": ""
+	},
+
+	// 13. limit
+	"limit": {
+		"prefix": "lim",
+		"body": [
+		  "\\lim_{$1}{$2}"
+		],
+		"description": ""
+	  },
+	
+	// 14. partial
+	"partial": {
+		"prefix": "pr",
+		"body": [
+		  "\\partial $1"
+		],
+		"description": ""
+	  },
+	
+
+	// 15. text in mathmode
+	"text in mathmode": {
+		"prefix": "mt",
+		"body": [
+		  "\\text{$1}"
+		],
+		"description": ""
+	  },
+
+	// 16.sqrt
+	"sqrt":{
+		"prefix": "sq",
+		"body": [
+			"\\sqrt[$1]{$2}"
+		],
+		"description": ""
+	},
+
+	// 17. minipage
+	"minipage insert": {
+		"prefix": "sbp",
+		"body": [
+		  "\\begin{figure}[!htb]",
+		  "    \\begin{minipage}[t]{$1\\linewidth}",
+		  "        $2",
+		  "    \\end{minipage}",
+		  "    \\begin{minipage}[t]{$1\\linewidth}",
+		  "        $3",
+		  "    \\end{minipage}",
+		  "\\end{figure}"
+		],
+		"description": ""
+	  },
+
+	// 18. sum
+	"sum":{
+		"prefix": "sm",
+		"body": [
+			"\\sum_{$1}^{$2}{$3}"
+		],
+		"description": ""
+	},
+
+	// 19. titlepage
+	"titlepage": {
+		"prefix": "tp",
+		"body": [
+		  "\\begin{titlepage}",
+		  "\\centering",
+		  "\\vspace{0.2\\textheight}  ",
+		  "{\\huge $1}",
+		  "\\vspace{0.025\\textheight}",
+		  "\\vspace{0.1\\textheight}",
+		  "",
+		  "{\\Large ${2:ZongPingD}}",
+		  "\\vfill ",
+		  "{\\large \\today}",
+		  "\\vspace{0.1\\textheight} ",
+		  "\\end{titlepage}",
+		  "\\tableofcontents",
+		  "\\newpage"
+		],
+		"description": ""
+	  },
+
+	// 20. vertical matrix
+	"vertical matrix": {
+		"prefix": "vmx",
+		"body": [
+		  "\\begin{bmatrix}",
+		  "    $1 & $2  & \\cdots & $3\\\\\\\\",
+		  "    $1 & $2  & \\cdots & $3\\\\\\\\",
+		  "    \\cdots\\\\\\\\",
+		  "    $1 & $2  & \\cdots & $3\\\\\\\\",
+		  "\\end{bmatrix} "
+		],
+		"description": ""
+	  },
+
+	// 21. main diagonal
+	"main diagonal": {
+		"prefix": "mdg",
+		"body": [
+		  "\\begin{bmatrix}",
+		  "    $3 & \\cdots  &$4       & $5\\\\\\\\",
+		  "    \\cdots & $3  & \\cdots & $4\\\\\\\\",
+		  "    $2 &\\cdots &\\cdots &\\cdots\\\\\\\\",
+		  "    $1 & $2  & \\cdots & $3\\\\\\\\",
+		  "\\end{bmatrix} "
+		],
+		"description": ""
+	  },
+	  
+	// 22. sub diagonal
+	"sub diagonal": {
+		"prefix": "sdg",
+		"body": [
+		  "\\begin{bmatrix}",
+		  "    $1 & \\cdots  &$2       & $3\\\\\\\\",
+		  "    \\cdots & $2  & \\cdots & $4\\\\\\\\",
+		  "    $2 &\\cdots &\\cdots &\\cdots\\\\\\\\",
+		  "    $3 & $4  & \\cdots & $5\\\\\\\\",
+		  "\\end{bmatrix} "
+		],
+		"description": ""
+	  },
+
+	// 23. textbf{}
+	"textbf":{
+		"prefix": "tb",
+		"body": [
+			"\\textbf{$1}"
+		],
+		"description": ""
+	},
+
+	// 24. textit{}
+	"textit":{
+		"prefix": "ti",
+		"body": [
+			"\\textit{$1}"
+		],
+		"description": ""
+	},
+
+	// 25. $$
+	"inlineformular": {
+	"prefix": "ll",
+	"body": [
+		"$$1$"
+	],
+	"description": ""
+	},
+
+	// 26. TiKZ plot2d fun
+	"plot2d function": {
+		"prefix": "plot2",
+		"body": [
+		  "\\draw[domain=$1, $2] plot(\\x, {$3});"
+		],
+		"description": ""
+	  },
+
+	  // 27. mbox{}
+	  	// 1.fracpartial
+	"mbox": {
+		"prefix": "mb",
+		"body": [
+		  "\\mbox{$1}"
+		],
+		"description": ""
+	  },
+
+	"article basic form": {
+	"prefix": "article",
+	"body": [
+		"\\documentclass[12pt]{article}",
+		"\\PassOptionsToPackage{quiet}{fontspec}",
+		"\\usepackage[a4paper, total={6.5in, 10in}]{geometry}",
+		"\\usepackage{amsmath}",
+		"\\usepackage{amsfonts}",
+		"\\usepackage{bm}",
+		"\\usepackage{enumerate}",
+		"\\usepackage{tikz}",
+		"\\usepackage{ctex}",
+		"\\usepackage{pgfplots}",
+		"\\pgfplotsset{compat=1.17}",
+		"\\usepackage{xcolor}",
+		"\\usepackage{float}",
+		"\\usepackage{framed}",
+		"\\usepackage{multicol}",
+		"\\usepackage{booktabs}",
+		"\\usepackage{graphicx}",
+		"",
+		"",
+		"\\begin{document}",
+		"    $1",
+		"\\end{document}"
+	],
+	"description": ""
+	},
+	// standalong tikz-fig plot template
+	"standaloneplotfigure": {
+		"prefix": "tikzfig",
+		"body": [
+		  "% 生成最终的图象时把第一个文档类取消注释即可",
+		  "%\\documentclass[10pt,varwidth]{standalone}",
+		  "\\documentclass[12pt]{article}",
+		  "% 1.必须添加varwidth选项，不然就会报错",
+		  "\\PassOptionsToPackage{quiet}{fontspec}",
+		  "\\usepackage{ctex}",
+		  "\\usepackage{geometry}",
+		  "% 必须要保证绘图的纸张足够的大",
+		  "\\geometry{a2paper,left=1in,right=1in,top=1in,bottom=1in}",
+		  "\\usepackage{xifthen}",
+		  "\\usepackage{xfp}",
+		  "\\usepackage{xcolor}",
+		  "\\usepackage{pgfplots}",
+		  "\\usepackage{pgfplotstable}",
+		  "\\pgfplotsset{compat=1.16}",
+		  "% 2.引用的tikz库",
+		  "\\usetikzlibrary {matrix, chains, trees, decorations}",
+		  "\\usetikzlibrary {arrows.meta, automata,positioning}",
+		  "\\usetikzlibrary {decorations.pathmorphing, calc}",
+		  "\\usetikzlibrary {backgrounds, mindmap,shadows}",
+		  "\\usetikzlibrary {patterns, quotes, 3d, shadows}",
+		  "\\usetikzlibrary {graphs, fadings, scopes}",
+		  "\\usetikzlibrary {arrows, shapes.geometric}",
+		  "\\usepgflibrary {shadings}",
+		  "",
+		  "\\tikzset{",
+		  "    >={Latex[length=6mm, width=2mm]}",
+		  "}",
+		  "",
+		  "",
+		  "",
+		  "\\begin{document}",
+		  "\\begin{tikzpicture}",
+		  "    $1",
+		  "\\end{tikzpicture}",
+		  "\\end{document}"
+		],
+		"description": "standaloneplotfigure"
+	  },
+
+	// 4. article Full-Sealed Template
+	"article full": {
+		"prefix": "article full",
+		"body": [
+		  "\\documentclass[12pt]{article}",
+		  "\\usepackage[a4paper, total={6.5in, 10in}]{geometry}",
+		  "\\usepackage{FunctionPlot}",
+		  "\\usepackage{MainTeX}",
+		  "\\usepackage{svg}",
+		  "",
+		  "",
+		  "\\begin{document}",
+		  "    $1",
+		  "\\end{document}"
+		],
+		"description": ""
+	  	},
+
+		"Beamer basic Frame": {
+			"prefix": "beamer",
+			"body": [
+			  "\\documentclass[]{beamer}",
+			  "\\usepackage{Slide}",
+			  "",
+			  "\\title{$1}",
+			  "\\author{${2:zongpingD}}",
+			  "\\date{\\today}",
+			  "\\logo{\\includegraphics[]{}} ",
+			  "\\begin{document}",
+			  "",
+			  "    \\begin{frame}[plain]",
+			  "        % plain不产生页眉和页脚",
+			  "        \\titlepage",
+			  "    \\end{frame}",
+			  "    ",
+			  "    \\begin{frame}{目录}",
+			  "        \\tableofcontents",
+			  "    \\end{frame}",
+			  "",
+			  "    \\begin{frame}",
+			  "        $3",
+			  "    \\end{frame} ",
+			  "",
+			  "\\end{document}"
+			],
+			"description": ""
+		  },
+
+		"frame": {
+		"prefix": "frame",
+		"body": [
+			"\\begin{frame}",
+			"    $1",
+			"\\end{frame} "
+		],
+		"description": ""
+		},
+
+		"framed": {
+		"prefix": "framed",
+		"body": [
+			"\\begin{framed}",
+			"    #1",
+			"\\end{framed}"
+		],
+		"description": ""
+		},
+
+		  "Multi columns": {
+			"prefix": "multicol",
+			"body": [
+			  "\\begin{multicols}{${1:2}}",
+			  "        $2",
+			  "\\end{multicols}",
+			],
+			"description": ""
+		  },
+		
+		"table": {
+		"prefix": "table",
+		"body": [
+			"\\begin{tabular}{${1:ccc}}",
+			"\\toprule",
+			"$2",
+			"\\bottomrule",
+			"\\end{tabular}",
+		],
+		"description": "Create a Three lines Table; -> \\usepackage{booktabs}"
+		},
+
+		// scale box
+		"": {
+			"prefix": "scale",
+			"body": [
+			"\\newcommand{\\scale}[2]{%",
+			"    \\scalebox{#1}[#1]{#2}}"
+			],
+			"description": ""
+		},
+
+	// inline displaystyle formula
+	// 注：\raise，\lower 后面必须加一个\hbox{}
+	// 但是 \kern 就不用添加
+	  "inline displaystyle formula": {
+		"prefix": "im",
+		"body": [
+		  "\\newcommand{\\im}[2][.5]{%",
+		  "    \\lower-.2em\\hbox{",
+		  "    \\scalebox{#1}[#1]{%",
+		  "    \\ensuremath{\\displaystyle #2}%",
+		  "}}}"
+		],
+		"description": "inline displaystyle formula"
+	  },
+
+	  // mtpro2字体配置
+	  "mtpro2 Math Font": {
+		"prefix": "mtpro2",
+		"body": [
+		  "\\usepackage[lite,subscriptcorrection,slantedGreek,nofontinfo]{mtpro2}"
+		],
+		"description": "A Beautiful Math Font"
+	  }
+}
